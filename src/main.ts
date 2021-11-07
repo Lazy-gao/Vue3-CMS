@@ -3,12 +3,16 @@ import App from './App.vue'
 import router from './router'
 import store from './store'
 import { registerApp } from './global'
-import './service/axios_demo'
+import lazyRequest from './service'
 
 const app = createApp(App)
 
 registerApp(app)
 
-app.use(router)
-app.use(store)
-app.mount('#app')
+app.use(router).use(store).mount('#app')
+
+lazyRequest.request({
+  url: '/home/multidata',
+  method: 'GET',
+  showLoading: false
+})

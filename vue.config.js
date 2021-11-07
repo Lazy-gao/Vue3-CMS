@@ -6,6 +6,7 @@ const { ElementPlusResolver } = require('unplugin-vue-components/resolvers')
 
 module.exports = {
   outputDir: './build',
+  publicPath: './',
   // configureWebpack: {
   //   resolve: {
   //     alias: {
@@ -20,9 +21,7 @@ module.exports = {
   //   }
   // },
   chainWebpack: (config) => {
-    config.resolve.alias
-      .set('@', path.resolve(__dirname, 'src'))
-      .set('views', '@/views')
+    config.resolve.alias.set('@', path.resolve(__dirname, 'src')).set('views', '@/views')
   },
   configureWebpack: {
     plugins: [
